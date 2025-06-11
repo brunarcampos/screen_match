@@ -1,3 +1,4 @@
+import br.com.alura.sreen_match.calculation.TimeCalculator;
 import br.com.alura.sreen_match.model.Film;
 import br.com.alura.sreen_match.model.Series;
 
@@ -22,8 +23,20 @@ public class Main {
         lost.displaysTechnicalDataSheet();
         lost.setSeasons(6);
         lost.setEpisodesPerSeason(25);
-        System.out.println("Film duration: " + lost.getDurationInMinutes());
+        lost.setMinutesPerEpisode(60);
+        System.out.println("Duration to binge watch Lost: " + lost.getDurationInMinutes());
 
+        Film anotherMovie = new Film();
+        anotherMovie.setName("Avatar");
+        anotherMovie.setYearOfRelease(2022);
+        anotherMovie.setDurationInMinutes(200);
+        System.out.println("Film duration: " + anotherMovie.getDurationInMinutes());
+
+        TimeCalculator calculator = new TimeCalculator();
+        calculator.includes(myFilm);
+        calculator.includes(anotherMovie);
+        calculator.includes(lost);
+        System.out.println(calculator.getTotalTime());
 
     }
 }
