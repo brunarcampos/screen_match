@@ -1,4 +1,6 @@
+import br.com.alura.sreen_match.calculation.RecommendationFilter;
 import br.com.alura.sreen_match.calculation.TimeCalculator;
+import br.com.alura.sreen_match.model.Episode;
 import br.com.alura.sreen_match.model.Film;
 import br.com.alura.sreen_match.model.Series;
 
@@ -37,6 +39,15 @@ public class Main {
         calculator.includes(anotherMovie);
         calculator.includes(lost);
         System.out.println(calculator.getTotalTime());
+
+        RecommendationFilter filter = new RecommendationFilter();
+        filter.filter(myFilm);
+        Episode episode = new Episode();
+        episode.setNumber(1);
+        episode.setSeries(lost);
+        episode.setTotalViews(300);
+        filter.filter(episode);
+
 
     }
 }
